@@ -76,13 +76,13 @@ Compare the original modulating signal with the demodulated signal. PROCEDURE
 
 ### Program
 
-Ac = 16.6;
+Ac = 10;
 
-Am = 8.3;
+Am = 0.62;
 
-Fc = 4900;
+Fc = 1500;
 
-Fm = 490;
+Fm = 150;
 
 Fs = 32000;
 
