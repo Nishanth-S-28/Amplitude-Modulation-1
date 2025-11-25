@@ -1,18 +1,18 @@
 # Amplitude-Modulation
 
-EXP NO: 1	GENERATION AND DETECTION OF AM
+## EXP NO: 1	GENERATION AND DETECTION OF AM
 
-AIM:
+### AIM:
 
 To generate and detect the amplitude modulation and demodulation u s i n g S C I L A B and to calculate modulation index of AM.
 
-EQUIPMENTS REQUIRED
+### EQUIPMENTS REQUIRED
 
 •	Computer with i3 Processor
 
 •	SCI LAB
 
-THEORY:
+### THEORY:
 
 Modulation can be defined as the process by which the characteristics of carrier wave are varied in accordance with the modulating wave (signal). Modulation is performed in a transmitter by a circuit called a modulator.
 Need for modulation is as follows:
@@ -31,7 +31,7 @@ Amplitude Modulation is the process of changing the amplitude of a relatively hi
 
 Note: Keep all the switch faults in off position
 
-Algorithm
+### Algorithm
 1.	Define Parameters
 First, define the parameters for your signals:
 •	Carrier frequency (fc)
@@ -74,23 +74,104 @@ Compare the original modulating signal with the demodulated signal. PROCEDURE
 •	If any Error, correct it in code and execute again
 •	Verify the generated waveform using Tabulation and Model Waveform
 
-Program
+### Program
+
+Ac = 16.6;
+
+Am = 8.3;
+
+Fc = 4900;
+
+Fm = 490;
+
+Fs = 32000;
+
+t = 0:1/Fs:2/Fm;
+
+e1 = (Am*sin(2*3.14*Fm*t));
+
+subplot(4,1,1);
+
+plot(t,e1);
+
+xgrid;
+
+title('Message Signal');
+
+xlabel('Time');
+
+ylabel('Amplitude');
 
 
 
-Output Waveform
+e2 = (Ac*sin(2*3.14*Fc*t));
 
+
+subplot(4,1,2);
+
+plot(t,e2);
+
+xgrid;
+
+title('Carrier Signal');
+
+xlabel('Time');
+
+ylabel('Amplitude');
+
+
+
+e3 = (Ac + (Am*sin(2*3.14*Fm*t))).*sin(2*3.14*Fc*t);
+
+subplot(4,1,3);
+
+plot(t,e3);
+
+xgrid;
+
+title('AM Modulated Signal');
+
+xlabel('Time');
+
+ylabel('Amplitude');
+
+
+
+demodulated_signal = abs(hilbert(e3)) - Ac;
+
+subplot(4,1,4);
+
+plot(t,demodulated_signal);
+
+xgrid;
+
+title('Demodulated Signal');
+
+xlabel('Time');
+
+ylabel('Amplitude');
+
+
+
+
+
+
+
+### Output Waveform
+
+<img width="1311" height="673" alt="Screenshot 2025-11-25 102149" src="https://github.com/user-attachments/assets/092703dc-5dd4-4877-a1dc-8c9c1eb2f599" />
 
 
 
 
 TABULATION:
+![IMG_20251125_102332](https://github.com/user-attachments/assets/a2ee3346-ebec-47d8-af8f-e552d630990a)
+![IMG_20251125_102355](https://github.com/user-attachments/assets/8259965a-28e5-4cef-a643-f4f3a286805d)
 
 
 
-Calculation
-1.	ma (Theory) = am/ac =
-2.	ma(Practical) = (Emax-Emin)/(Emax+Emin) =
+
+
 
 
 MODEL GRAPH
